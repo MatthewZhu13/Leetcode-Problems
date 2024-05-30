@@ -1,6 +1,9 @@
 class Solution(object):
     def twoSum(self, nums, target):
+        #Notes:
+        #array problems ususally involve finding 2 indicies or values that equal a sum    
 
+        
         #Variable that is: target - value you are currently
         #Determines what value you need to find in the array
         remainder = 0
