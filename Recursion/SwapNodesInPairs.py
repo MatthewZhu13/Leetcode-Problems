@@ -5,18 +5,18 @@
 #         self.next = next
 class Solution(object):
     def swapPairs(self, head):
-        #If head has no nodes or only one node, there is not need to swap anything
-        if not head or not head.next:
+        #Recursive basecase that stops when end of linked list is reachhed
+        if head == None or head.next == None:
             return head
 
-        #Sets the a new temporary head where the next swap will begin
-        new_head = head.next.next
+        #Temp variable that points to second half of pair
+        temp = head.next
+        #Points the first half of pair to start of next pair and does above process with next pair
+        head.next = self.swapPairs(temp.next)
+        
+        #Points second half of pair to first half of pair
+        temp.next = head  
 
-        #Swaping the frist two nodes
-        head, head.next = head.next, head
+        #Final output
+        return temp
 
-        #Setting the 3rd node down the line as the next recursive call as that where the next pair will start
-        head.next.next = self.swapPairs(new_head)
-
-        #output
-        return head
