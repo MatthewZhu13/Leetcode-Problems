@@ -20,12 +20,15 @@ class Solution(object):
         #Calculating the right product values and multiplying them by the left ones all in 1 step
         #Start at len(nums) - 2 as the rightmost value has no more numbers on the right of it
         #End at -1 so that that last value of j can be 0
+
+        #A variable that keeps track of all the right hand side products
+        right = nums[-1]
         for j in range(len(nums) - 2, -1, -1):
             #Multiply arr[j] by the product of all ints on the right of it
-            arr[j] = arr[j] * nums[j + 1]
+            arr[j] = arr[j] * right
             
-            #Update nums[j] so that it is the product of values on the right of it so that we do not have to recalculate the product every time
-            nums[j] = nums[j + 1] * nums[j]
+            #Update right so that it is the product of values on the right of it so that we do not have to recalculate the product every time
+            right *= nums[i]
 
         #Output statement
         return arr
